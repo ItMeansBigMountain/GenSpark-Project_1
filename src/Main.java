@@ -4,15 +4,31 @@ public class Main {
     public static void main(String[] args) {
         Scanner myObj = new Scanner(System.in);
 
-
         System.out.println("DRAGON CAVE");
         System.out.println("You are in a land full of dragons. In front of you,\n you see two caves.");
         System.out.println("In one cave there is a friendly dragon who may share his treasure with you...");
         System.out.println("The other cave beholds a greedy, hungry dragon who will eat you on sight...");
         System.out.print("\nWhich cave will you go into? (1 or 2) \n>\t");
 
-
+        // USER INPUT AND VALIDATION
         String USER_INPUT = myObj.nextLine();
+        boolean validation = false;
+        while(validation != true)
+        {
+            try
+            {
+                Integer.valueOf(USER_INPUT);
+                validation = true;
+
+            }
+            catch (NumberFormatException e)
+            {
+                System.out.print( "Please enter valid option: (1 or 2)\n>\t" );
+                USER_INPUT = myObj.nextLine();
+            }
+        }
+
+
 
         if (Integer.valueOf(USER_INPUT) == 1) {
             System.out.println("You approach the cave...\nIt is dark and spooky...");
@@ -29,8 +45,6 @@ public class Main {
         } else {
             System.out.println("You go back to your village...");
         }
-
-
     }
 
 }
