@@ -1,5 +1,6 @@
 import java.util.Scanner;
 
+
 public class Main {
     public static void main(String[] args) {
         Scanner myObj = new Scanner(System.in);
@@ -10,31 +11,25 @@ public class Main {
         System.out.println("The other cave beholds a greedy, hungry dragon who will eat you on sight...");
         System.out.print("\nWhich cave will you go into? (1 or 2) \n>\t");
 
+
         // USER INPUT AND VALIDATION
         String USER_INPUT = myObj.nextLine();
         boolean validation = false;
-        while(validation != true)
-        {
-            try
-            {
-                Integer.valueOf(USER_INPUT);
+        while (!validation) {
+            if (UserInputValidation.input_validation(USER_INPUT)) {
                 validation = true;
-
-            }
-            catch (NumberFormatException e)
-            {
-                System.out.print( "Please enter valid option: (1 or 2)\n>\t" );
+            } else {
+                System.out.print("Please enter valid option: (1 or 2)\n>\t");
                 USER_INPUT = myObj.nextLine();
             }
         }
 
 
-
-        if (Integer.valueOf(USER_INPUT) == 1) {
+        if (Integer.parseInt(USER_INPUT) == 1) {
             System.out.println("You approach the cave...\nIt is dark and spooky...");
             System.out.println("A large dragon jumps out in front of you! He opens his jaws and...");
             System.out.println("Gobbles you down in one bite!");
-        } else if (Integer.valueOf(USER_INPUT) == 2) {
+        } else if (Integer.parseInt(USER_INPUT) == 2) {
             System.out.println("You see large crystals on the walls with purple liquid dripping down the tips.");
             System.out.println("In the distance you see a glow...");
             System.out.println("As you approach this glow, you realize there is a computer screen facing towards you.");
